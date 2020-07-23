@@ -30,6 +30,6 @@ public class Deck {
     }
 
     public PlayingCard dealCard(){
-        return this.cards.get(0);
+        return this.cards.remove(0);
     }
 }

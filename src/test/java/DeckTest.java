@@ -29,4 +29,11 @@ public class DeckTest {
             PlayingCard testPlayingCard = new PlayingCard(Suit.HEARTS, Rank.SIX);
             assertEquals(testPlayingCard.getClass().getName(), deck.dealCard().getClass().getName());
         }
+
+        @Test
+        public void dealingRemovesCard(){
+            this.deck.fillDeck();
+            this.deck.dealCard();
+            assertEquals(51, this.deck.getCardCount());
+        }
 }
