@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
 
@@ -18,9 +19,17 @@ public class Deck {
             for (Rank cardRank : Rank.values()){
                 PlayingCard playingCard = new PlayingCard(cardSuit, cardRank);
                 this.cards.add(playingCard);
-                System.out.println(playingCard.getSuit().getString());
             }
         }
+        shuffleDeck();
         return cards;
+    }
+
+    public void shuffleDeck(){
+        Collections.shuffle(cards);
+    }
+
+    public PlayingCard dealCard(){
+        return this.cards.get(0);
     }
 }

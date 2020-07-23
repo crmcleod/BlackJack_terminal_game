@@ -22,4 +22,11 @@ public class DeckTest {
             this.deck.fillDeck();
             assertEquals(52, deck.getCardCount());
         }
+
+        @Test
+        public void canDealCard(){
+            this.deck.fillDeck();
+            PlayingCard testPlayingCard = new PlayingCard(Suit.HEARTS, Rank.SIX);
+            assertEquals(testPlayingCard.getClass().getName(), deck.dealCard().getClass().getName());
+        }
 }
