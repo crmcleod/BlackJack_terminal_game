@@ -7,27 +7,21 @@ public class Deck {
 
     public Deck(){
         this.cards = new ArrayList<PlayingCard>();
-    }
+
+            for (Suit cardSuit : Suit.values()){
+                for (Rank cardRank : Rank.values()){
+                    PlayingCard playingCard = new PlayingCard(cardSuit, cardRank);
+                    this.cards.add(playingCard);
+                }
+            }
+           Collections.shuffle(this.cards);
+        }
+
 
     public int getCardCount(){
         return this.cards.size();
     }
 
-
-    public ArrayList<PlayingCard> fillDeck() {
-        for (Suit cardSuit : Suit.values()){
-            for (Rank cardRank : Rank.values()){
-                PlayingCard playingCard = new PlayingCard(cardSuit, cardRank);
-                this.cards.add(playingCard);
-            }
-        }
-        shuffleDeck();
-        return cards;
-    }
-
-    public void shuffleDeck(){
-        Collections.shuffle(cards);
-    }
 
     public PlayingCard dealCard(){
         return this.cards.remove(0);

@@ -9,8 +9,5 @@
         <module name="CardLab" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="CardLab" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>

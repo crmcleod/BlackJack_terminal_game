@@ -20,4 +20,9 @@ public class PlayingCardTest {
     public void getRank(){
         assertEquals(Rank.FIVE, this.playingCard.getRank());
     }
+
+    @Test
+    public void getCardName(){
+        assertEquals("Five of Clubs", this.playingCard.cardName());
+    }
 }
