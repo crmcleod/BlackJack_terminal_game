@@ -2,40 +2,24 @@ import java.util.ArrayList;
 
 public class Dealer {
 
-    private ArrayList<Player> playerList;
-    Deck deck;
-
-    public Dealer(Deck deck) {
-        this.playerList = new ArrayList<Player>();
-        this.deck = deck;
+    private ArrayList<PlayingCard> dealerHand;
+    
+    public Dealer() {
+        this.dealerHand = new ArrayList<PlayingCard>();
     }
 
-    public void addPlayer(Player player) {
-        this.playerList.add(player);
+    public void addCardToHand(PlayingCard playingCard){
+        this.dealerHand.add(playingCard);
     }
 
-    public int playerArrayLength() {
-        return this.playerList.size();
-    }
+    public int handCount(){return this.dealerHand.size();}
 
-    public void dealCardsToAllPlayers(int noOfCards) {
-        for (Player player : this.playerList) {
-            for (int i = 0; i < noOfCards; i++) {
-                PlayingCard playingCard = deck.dealCard();
-                player.addCardToHand(playingCard);
-            }
+    public int score(){
+        int scoreTotal = 0;
+        for (PlayingCard playingCard : this.dealerHand){
+            scoreTotal += playingCard.getValue();
         }
+        return scoreTotal;
     }
 
-    public String getWinner() {
-        int highScore = 0;
-        String winner = "";
-        for (Player player : this.playerList) {
-            if (player.score() > highScore) {
-                highScore = player.score();
-                winner = player.getName();
-            }
-        }
-        return winner;
-    }
 }

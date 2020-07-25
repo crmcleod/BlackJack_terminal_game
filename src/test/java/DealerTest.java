@@ -8,28 +8,16 @@ public class DealerTest {
     Deck deck;
     Player player1;
     Player player2;
+    Game game;
 
     @Before
     public void before(){
         deck = new Deck();
-        dealer = new Dealer(deck);
+        dealer = new Dealer();
         player1 = new Player("Jackson");
         player2 = new Player("Earthworm Jim");
-        dealer.addPlayer(player1);
-        dealer.addPlayer(player2);
+        this.game = new Game(deck, dealer);
+        game.addPlayer(player1);
+        game.addPlayer(player2);
     }
-
-    @Test
-    public void addPlayerToPlayerArray(){
-        assertEquals(2, dealer.playerArrayLength());
-    }
-
-    @Test
-    public void canDealToAllPlayers(){
-        dealer.dealCardsToAllPlayers(2);
-        assertEquals(2, player1.handCount());
-        assertEquals(2, player2.handCount());
-
-    }
-
 }

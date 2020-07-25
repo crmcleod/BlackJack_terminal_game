@@ -11,6 +11,7 @@ public class PlayerTest {
     private PlayingCard playingCard2;
     private Dealer dealer;
     private Deck deck;
+    private Game game;
 
     @Before
     public void before(){
@@ -19,7 +20,9 @@ public class PlayerTest {
         this.playingCard = new PlayingCard(Suit.HEARTS, Rank.ACE);
         this.playingCard2 = new PlayingCard(Suit.DIAMONDS, Rank.FIVE);
         this.player.addCardToHand(playingCard);
-        this.dealer = new Dealer(deck);
+        this.dealer = new Dealer();
+        this.deck = new Deck();
+        this.game = new Game(deck, dealer);
 
     }
 
@@ -46,10 +49,10 @@ public class PlayerTest {
 
     @Test
     public void getWinner(){
-        dealer.addPlayer(player);
-        dealer.addPlayer(player2);
+        game.addPlayer(player);
+        game.addPlayer(player2);
         this.player2.addCardToHand(playingCard2);
-        assertEquals("Tommy Pickles", dealer.getWinner());
-        System.out.println(dealer.getWinner());
+        assertEquals("Tommy Pickles", game.getWinner());
+        System.out.println(game.getWinner());
     }
 }
