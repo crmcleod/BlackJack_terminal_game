@@ -37,7 +37,18 @@ public class Game {
         }
     }
 
+    public PlayingCard twist(){
+        return deck.dealCard();
+    }
+    public void dealerTwist(){
+        for(int i = dealer.score(); i < 16; i += twist().getValue()){
+
+            dealer.addCardToHand();
+        }
+    }
+
     public String getWinner() {
+        dealerTwist();
         int highScore = dealer.score();
         String winner = "House wins!";
         for (Player player : this.playerList) {
