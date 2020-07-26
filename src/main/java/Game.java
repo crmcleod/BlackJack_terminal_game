@@ -42,22 +42,20 @@ public class Game {
     }
 
     public void dealerTwist(){
-        while (dealer.score()<16){
-            dealCardsToDealer(1);
-        }
-    }
+        while(dealer.score() < 16){dealCardsToDealer(1);
+    }}
 
-    public String getWinner() {
-        dealerTwist();
+    public String getWinner(){
         int highScore = dealer.score();
         String winner = "House";
         for (Player player : this.playerList) {
-            if ((player.score() > highScore) && player.checkIfBust() == false) {
+            if ((player.score() > highScore) && !player.checkIfBust()) {
                 highScore = player.score();
                 winner = player.getName();
             }
         }
         return winner;
+
     }
 
 }

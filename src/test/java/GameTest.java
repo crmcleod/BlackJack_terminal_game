@@ -71,4 +71,10 @@ public class GameTest {
         player1.addCardToHand(playingCard);
         assertEquals("Jackson", game.getWinner());
     }
+
+    @Test
+    public void canDealCardsToDealer(){
+        game.dealerTwist();
+        assertEquals(3, dealer.handCount());
+    }
 }

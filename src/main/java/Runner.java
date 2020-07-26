@@ -28,13 +28,14 @@ public class Runner {
             Player player = new Player(playerName);
             game.addPlayer(player);
         }
-        System.out.println(deck.getCardCount());
         game.dealCardsToAllPlayers(2);
         System.out.println("Dealer's hand: ");
         System.out.println(dealer.showStartingHand());
-        System.out.println(deck.getCardCount());
+        System.out.println("------------");
+
 
         for (Player player : game.getPlayerList()) {
+            System.out.println("------------");
             String output = String.format("%s's hand:", player.getName());
             System.out.println(output);
             for (int i = 0; i < player.handCount(); i++) {
@@ -44,8 +45,11 @@ public class Runner {
             while (stickTwist.equals("t")){
                 String score = String.format("Your score is %s", player.score());
                 System.out.println(score);
+                System.out.println("------------");
                 if(player.checkIfBust()==true){
                     System.out.println("Bust! Sorry.");
+                    System.out.println("------------");
+
                     stickTwist = "s";
                 } else {
                 System.out.println(stickTwistQ);
@@ -63,6 +67,13 @@ public class Runner {
         System.out.println("Dealer shows other card:");
         dealer.showHiddenCard();
         System.out.println(dealer.showCurrentHand());
+        if (dealer.score() <16){
+            System.out.println("The dealer will draw again:"); }
+
+        game.dealerTwist();
+        for (int i = 0; i < dealer.handCount(); i++) {
+            System.out.println(dealer.getCard(i));}
+
         String winner = String.format("%s is the winner!", game.getWinner());
         System.out.println(winner);
 
