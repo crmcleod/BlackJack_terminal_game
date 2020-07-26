@@ -35,6 +35,10 @@ public class Player {
         return name;
     }
 
+    public PlayingCard getCardFromHand(int i){
+        return hand.get(i);
+    }
+
     public boolean checkIfBust(){
         return isBust;
     }

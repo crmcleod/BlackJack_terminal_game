@@ -16,6 +16,10 @@ public class Game {
         this.playerList.add(player);
     }
 
+    public ArrayList<Player> getPlayerList(){
+        return playerList;
+    }
+
     public int playerArrayLength() {
         return this.playerList.size();
     }
@@ -46,7 +50,7 @@ public class Game {
     public String getWinner() {
         dealerTwist();
         int highScore = dealer.score();
-        String winner = "House wins!";
+        String winner = "House";
         for (Player player : this.playerList) {
             if ((player.score() > highScore) && player.checkIfBust() == false) {
                 highScore = player.score();

@@ -4,10 +4,14 @@ public class Dealer {
 
     private ArrayList<PlayingCard> dealerHand;
     private boolean isBust;
+    private String startingCard1;
+    private String startingCard2;
 
     public Dealer() {
         this.dealerHand = new ArrayList<PlayingCard>();
         this.isBust = false;
+        this.startingCard1 = "Hidden";
+        this.startingCard2 = "";
     }
 
     public void addCardToHand(PlayingCard playingCard){
@@ -33,5 +37,24 @@ public class Dealer {
         }
         return scoreTotal;
     }
+
+    public String getCard(int index){
+       return dealerHand.get(index).cardName();
+    }
+
+    public String showStartingHand(){
+        startingCard2 = getCard(1);
+        return String.format("Card 1 is %s : Card 2 is %s", startingCard1, startingCard2);
+    }
+
+    public void showHiddenCard(){
+        startingCard1 = getCard(0);
+    }
+
+    public String showCurrentHand(){
+        startingCard2 = getCard(1);
+        return String.format("Card 1 is %s : Card 2 is %s", startingCard1, startingCard2);
+    }
+
 
 }

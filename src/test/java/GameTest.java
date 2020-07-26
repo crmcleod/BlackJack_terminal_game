@@ -64,6 +64,11 @@ public class GameTest {
     public void getWinner_player(){
         player1.addCardToHand(playingCard2);
         player1.addCardToHand(playingCard2);
+        player1.addCardToHand(playingCard2);
+        player1.addCardToHand(playingCard);
+        player1.addCardToHand(playingCard);
+        player1.addCardToHand(playingCard);
+        player1.addCardToHand(playingCard);
         assertEquals("Jackson", game.getWinner());
     }
 }
