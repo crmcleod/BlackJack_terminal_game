@@ -35,21 +35,21 @@ public class Game {
     }
 
     public void dealCardsToDealer(int noOfCards){
-        for (int i = 0; i < noOfCards; i++){
+        for (int i = 0; i <= noOfCards; i++){
             PlayingCard dealerCard = deck.dealCard();
             dealer.addCardToHand(dealerCard);
         }
     }
 
     public void dealerTwist(){
-        while(dealer.score() < 16){dealCardsToDealer(1);
+        while(dealer.score() <=15 ){dealCardsToDealer(1);
     }}
 
     public String getWinner(){
         int highScore = dealer.score();
         String winner = "House";
         for (Player player : this.playerList) {
-            if ((player.checkIfBlackJack()) || ((player.score() > highScore) && !player.checkIfBust())) {
+            if ((player.checkIfBlackJack() || (player.score() > highScore)) && !player.checkIfBust()) {
                 highScore = player.score();
                 winner = player.getName();
             }

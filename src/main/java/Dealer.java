@@ -26,7 +26,7 @@ public class Dealer {
 
     public int score(){
         int scoreTotal = 0;
-        for (PlayingCard playingCard : dealerHand){
+        for (PlayingCard playingCard: dealerHand){
             scoreTotal += playingCard.getValue();
         }
         if (scoreTotal < 21){
