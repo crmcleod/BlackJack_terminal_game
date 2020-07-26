@@ -37,13 +37,9 @@ public class Game {
         }
     }
 
-    public PlayingCard twist(){
-        return deck.dealCard();
-    }
     public void dealerTwist(){
-        for(int i = dealer.score(); i < 16; i += twist().getValue()){
-
-            dealer.addCardToHand();
+        while (dealer.score()<16){
+            dealCardsToDealer(1);
         }
     }
 
@@ -52,7 +48,7 @@ public class Game {
         int highScore = dealer.score();
         String winner = "House wins!";
         for (Player player : this.playerList) {
-            if (player.score() > highScore) {
+            if ((player.score() > highScore) && player.checkIfBust() == false) {
                 highScore = player.score();
                 winner = player.getName();
             }

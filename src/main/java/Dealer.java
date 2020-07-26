@@ -16,6 +16,10 @@ public class Dealer {
 
     public int handCount(){return this.dealerHand.size();}
 
+    public boolean checkIfBust(){
+        return isBust;
+    }
+
     public int score(){
         int scoreTotal = 0;
         for (PlayingCard playingCard : dealerHand){
@@ -24,6 +28,7 @@ public class Dealer {
         if (scoreTotal < 21){
             return scoreTotal;}
         else if (scoreTotal > 21){
+            scoreTotal = 0;
             isBust = true;
         }
         return scoreTotal;

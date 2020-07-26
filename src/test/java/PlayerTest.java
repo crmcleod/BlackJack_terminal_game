@@ -51,7 +51,11 @@ public class PlayerTest {
     public void getWinner(){
         game.addPlayer(player1);
         game.addPlayer(player2);
-        this.player2.addCardToHand(playingCard2);
+        player2.addCardToHand(playingCard2);
+        player2.addCardToHand(playingCard2);
+        player2.addCardToHand(playingCard2);
+        player2.addCardToHand(playingCard2);
+        System.out.println(player2.score());
         assertEquals("Tommy Pickles", game.getWinner());
     }
 
@@ -70,4 +74,21 @@ public class PlayerTest {
         assertEquals(26, player1.score());
         assertEquals(true, player1.checkIfBust());
     }
+
+    @Test
+    public void canTwist(){
+        this.player1.addCardToHand(playingCard2);
+        this.player1.twist(playingCard2);
+        assertEquals(3, player1.handCount());
+    }
+
+    @Test
+    public void canStick(){
+        this.player1.stick();
+        this.player1.twist(playingCard2);
+        this.player1.twist(playingCard2);
+        this.player1.twist(playingCard2);
+        assertEquals(1, player1.handCount());
+    }
+
 }
