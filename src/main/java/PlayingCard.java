@@ -15,6 +15,8 @@ public class PlayingCard {
         return this.rank;
     }
 
+    public String getRankString(){ return this.rank.getRankString();}
+
     public int getValue() { return this.rank.getValue();}
 
     public String cardName() { return String.format("%s of %s", this.rank.getRankString(), this.suit.getSuitString());}

@@ -49,7 +49,7 @@ public class Game {
         int highScore = dealer.score();
         String winner = "House";
         for (Player player : this.playerList) {
-            if ((player.score() > highScore) && !player.checkIfBust()) {
+            if ((player.checkIfBlackJack()) || ((player.score() > highScore) && !player.checkIfBust())) {
                 highScore = player.score();
                 winner = player.getName();
             }

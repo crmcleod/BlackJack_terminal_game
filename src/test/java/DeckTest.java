@@ -13,11 +13,6 @@ public class DeckTest {
             deck = new Deck();
         }
 
-//        @Test
-//        public void deckStartsEmpty(){
-//            assertEquals(0, deck.getCardCount());
-//        }
-
         @Test
         public void canFillDeck(){
             assertEquals(52, deck.getCardCount());

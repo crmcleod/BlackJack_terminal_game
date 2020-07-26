@@ -19,6 +19,22 @@ public class Player {
         this.hand.add(playingCard);}
     }
 
+    public String getCardRankString(int index){
+        return hand.get(index).getRankString();
+    }
+
+    public int getCardValue(int index){
+        return hand.get(index).getValue();
+    }
+
+    public boolean checkIfBlackJack(){
+        boolean blackJack = false;
+        if ((getCardRankString(0).equals("Ace") && getCardValue(1) == 10) ||
+                (getCardRankString(1).equals("Ace") && getCardValue(0) == 10)){
+            blackJack = true;}
+        return blackJack;
+    }
+
     public void twist(PlayingCard playingCard){
         addCardToHand(playingCard);
     }

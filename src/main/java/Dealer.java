@@ -42,6 +42,22 @@ public class Dealer {
        return dealerHand.get(index).cardName();
     }
 
+    public String getCardRankString(int index){
+        return dealerHand.get(index).getRankString();
+    }
+
+    public int getCardValue(int index){
+        return dealerHand.get(index).getValue();
+    }
+
+    public boolean checkIfBlackJack(){
+        boolean blackJack = false;
+        if ((getCardRankString(0).equals("Ace") && getCardValue(1) == 10) ||
+                (getCardRankString(1).equals("Ace") && getCardValue(0) == 10)){
+                    blackJack = true;}
+        return blackJack;
+    }
+
     public String showStartingHand(){
         startingCard2 = getCard(1);
         return String.format("Card 1 is %s : Card 2 is %s", startingCard1, startingCard2);

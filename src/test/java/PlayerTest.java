@@ -55,7 +55,6 @@ public class PlayerTest {
         player2.addCardToHand(playingCard2);
         player2.addCardToHand(playingCard2);
         player2.addCardToHand(playingCard2);
-        System.out.println(player2.score());
         assertEquals("Tommy Pickles", game.getWinner());
     }
 

@@ -73,7 +73,8 @@ public class Runner {
         game.dealerTwist();
         for (int i = 0; i < dealer.handCount(); i++) {
             System.out.println(dealer.getCard(i));}
-
+        String dealerScore = String.format("The dealer's score is %s", dealer.score());
+        System.out.println(dealerScore);
         String winner = String.format("%s is the winner!", game.getWinner());
         System.out.println(winner);
 

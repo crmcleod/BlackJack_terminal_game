@@ -57,7 +57,7 @@ public class GameTest {
 
     @Test
     public void getWinner_house(){
-        assertEquals("House wins!", game.getWinner());
+        assertEquals("House", game.getWinner());
     }
 
     @Test
