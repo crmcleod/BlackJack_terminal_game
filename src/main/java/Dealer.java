@@ -32,7 +32,6 @@ public class Dealer {
         if (scoreTotal < 21){
             return scoreTotal;}
         else if (scoreTotal > 21){
-            scoreTotal = 0;
             isBust = true;
         }
         return scoreTotal;

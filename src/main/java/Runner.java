@@ -38,18 +38,23 @@ public class Runner {
             System.out.println("------------");
             String output = String.format("%s's hand:", player.getName());
             System.out.println(output);
+
             for (int i = 0; i < player.handCount(); i++) {
                 System.out.println(player.getCardFromHand(i).cardName());}
+
             String stickTwistQ = String.format("%s would you like to stick or twist? (s/t)", player.getName());
+
             String stickTwist = "t";
+
             while (stickTwist.equals("t")){
                 String score = String.format("Your score is %s", player.score());
                 System.out.println(score);
+
                 System.out.println("------------");
+
                 if(player.checkIfBust()==true){
                     System.out.println("Bust! Sorry.");
                     System.out.println("------------");
-
                     stickTwist = "s";
                 } else {
                 System.out.println(stickTwistQ);
@@ -67,17 +72,25 @@ public class Runner {
         System.out.println("Dealer shows other card:");
         dealer.showHiddenCard();
         System.out.println(dealer.showCurrentHand());
+
+        String dealerBust = "The dealer is bust";
+        String dealerLow = "The dealer will draw again";
         if (dealer.score() < 16){
-            System.out.println("The dealer will draw again:");}
-        if (dealer.score() < 16){
-            game.dealCardsToDealer(1);}
+            System.out.println(dealerLow);
+            game.dealerTwist();}
+        else if (dealer.score() == 0){
+            System.out.println(dealerBust);
+        }
+
         for (int i = 0; i < dealer.handCount(); i++) {
             System.out.println(dealer.getCard(i));}
+
         String dealerScore = String.format("The dealer's score is %s", dealer.score());
         System.out.println(dealerScore);
+
         String winner = String.format("%s is the winner!", game.getWinner());
         System.out.println(winner);
 
-        String inputEnd = scanner.next();
+//        String inputEnd = scanner.next();
 
     }}

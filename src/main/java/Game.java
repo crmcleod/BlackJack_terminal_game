@@ -35,7 +35,7 @@ public class Game {
     }
 
     public void dealCardsToDealer(int noOfCards){
-        for (int i = 0; i <= noOfCards; i++){
+        for (int i = 0; i < noOfCards; i++){
             PlayingCard dealerCard = deck.dealCard();
             dealer.addCardToHand(dealerCard);
         }
