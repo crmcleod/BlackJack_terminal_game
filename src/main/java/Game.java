@@ -42,8 +42,8 @@ public class Game {
     }
 
     public void dealerTwist(){
-        while(dealer.score() <=15 ){dealCardsToDealer(1);
-    }}
+        if(dealer.score()<16){dealCardsToDealer(1);
+        }}
 
     public String getWinner(){
         int highScore = dealer.score();

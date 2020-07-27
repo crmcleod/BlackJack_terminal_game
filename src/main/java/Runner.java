@@ -67,11 +67,10 @@ public class Runner {
         System.out.println("Dealer shows other card:");
         dealer.showHiddenCard();
         System.out.println(dealer.showCurrentHand());
-        if (dealer.score() <=15){
-            System.out.println("The dealer will draw again:"); }
-
-//        game.dealerTwist();
-        while(dealer.score()<16){game.dealCardsToDealer(1);}
+        if (dealer.score() < 16){
+            System.out.println("The dealer will draw again:");}
+        if (dealer.score() < 16){
+            game.dealCardsToDealer(1);}
         for (int i = 0; i < dealer.handCount(); i++) {
             System.out.println(dealer.getCard(i));}
         String dealerScore = String.format("The dealer's score is %s", dealer.score());
